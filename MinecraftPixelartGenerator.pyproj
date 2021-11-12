@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MatrixCell.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MinecraftPixelartGenerator.py" />
     <Compile Include="preview.py">
       <SubType>Code</SubType>

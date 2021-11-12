@@ -1,6 +1,7 @@
 from PIL import Image
 import os, copy
 from preview import PreviewClass
+from MatrixCell import MatrixCell
 
 def avrgColorInDir(inputDir):
     files = os.listdir(inputDir);
@@ -52,6 +53,10 @@ def fileToArray(texturesFile):
         i += 1;
     return texturesColorsArray
 
+#def arrayToMatrix(texturesColorsArray):
+    #matrix = [[]*255,[]*255,[]*255];
+
+
 # Matches pixels with blocks
 #def matchBlocks(image, blocksArray):
 
@@ -74,7 +79,7 @@ while(True):
     elif userInput == "load":
         print("Enter your image path:");
         img = Image.open(input());
-        print("Enter preferred size (press enter to keep source image size): <width> <height>");
+        print("Enter preferred resolution (press enter to keep source image resolution): <width> <height>");
         size = input();
         if size != "":
             w, h = map(int, size.split());
@@ -88,7 +93,7 @@ while(True):
         print("C:\\Users\\Vadim\\Desktop\\Delete\\blockForPreview");
         #
         if userInput == "preview":
-            print("NOTE: All textures must the same square size.\nEnter path to your textures folder:");
+            print("NOTE: All textures must have the same square resolution.\nEnter path to your textures folder:");
             path = input();
             previewObj = PreviewClass();
             previewObj.showArt(texturesColorsArray, img, path);

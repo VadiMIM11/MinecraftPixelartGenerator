@@ -1,13 +1,19 @@
 from PIL import Image
 import os
+import time
 
 class PreviewClass(object):
     """Allows to create a new image using textures instead of pixels"""
     
     def __isDir(self, file):
+        pointCounter = 0;
         for i in file:
+            if i == ".":
+                pointCounter += 1;
             if i == "\\" or i == "/":
                 return True;
+        if pointCounter == 0:
+            return True;
         return False
 
     __texturesSize = ();
@@ -27,7 +33,7 @@ class PreviewClass(object):
                     return False;
                 else:
                     self.__texturesSize = (x, y);
-                    return True;
+        return True;
 
     def matchPixelWithTextures(self, pixel, texturesDir, texturesColorsArray):
         dr = abs(pixel[0] - int(texturesColorsArray[0][1]));
@@ -49,20 +55,49 @@ class PreviewClass(object):
         return minName;
 
     def showArt(self, texturesColorsArray, image, texturesDir):
+        start = time.time();
+        matchTime = 0;
+        openTime = 0;
+        pasteTime = 0;
         if self._checkTexturesInDir(texturesDir):
+            openTimeStart = time.time();
+            textures = [];
+            files = os.listdir(texturesDir);
+            for file in files:
+                textures.append(Image.open(texturesDir + "\\" + file));
+            openTime += time.time() - openTimeStart;
+
             previewImgSize = (image.size[0] * self.__texturesSize[0], image.size[1] * self.__texturesSize[1]);
             previewImg = Image.new("RGBA", previewImgSize);
             pxls = image.convert("RGBA").load();
             for x in range(image.size[0]):
                 for y in range(image.size[1]):
                     pixel = pxls[x, y];
+
+                    matchTimeStart = time.time();
                     textureName = self.matchPixelWithTextures(pixel, texturesDir, texturesColorsArray);
-                    texture = Image.open(texturesDir + "\\" + textureName);
+                    matchTime += time.time() - matchTimeStart;
+
+                    openTimeStart = time.time();
+                    #texture = Image.open(texturesDir + "\\" + textureName);
+                    index = files.index(textureName);
+                    texture = textures[index];
+                    openTime += time.time() - openTimeStart;
+
                     posX = x * self.__texturesSize[0];
                     posY = y * self.__texturesSize[1];
+
+                    pasteTimeStart = time.time();
                     previewImg.paste(texture, (posX, posY));
+                    pasteTime += time.time() - pasteTimeStart;
             #previewImg.show();
             previewImg.save("preview.png");
         else:
             print("Something went wrong! Check your textures folder. It mustn't contain any folders in it");
+        end = time.time()
+        workingTime = (end - start);
+        print("Working time: {0} seconds".format(workingTime));
+        print("MatchTime: {0}\nPasteTime: {1}\nOpenTime: {2}\n".format(matchTime, pasteTime, openTime));
+        print();
+
 

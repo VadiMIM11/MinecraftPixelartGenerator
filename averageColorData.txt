@@ -29,7 +29,6 @@ black_shulker_box.png 24 24 28 240
 black_terracotta.png 35 22 15 240
 black_wool.png 20 20 24 240
 blast_furnace_front.png 100 100 99 240
-blast_furnace_front_on.png 112 107 102 248
 blast_furnace_side.png 100 100 100 240
 blue_concrete.png 42 44 135 240
 blue_concrete_powder.png 66 69 157 240
@@ -41,7 +40,6 @@ blue_wool.png 50 54 149 240
 bone_block_side.png 216 213 196 240
 bone_block_top.png 197 193 168 240
 bookshelf.png 108 87 56 240
-brewing_stand.png 60 50 39 124
 brewing_stand_base.png 110 100 100 240
 bricks.png 141 92 78 240
 brown_concrete.png 91 56 30 240
@@ -164,9 +162,6 @@ jungle_planks.png 150 107 75 240
 jungle_trapdoor.png 121 88 62 198
 lapis_block.png 29 62 131 240
 lapis_ore.png 92 104 125 240
-lectern_base.png 153 113 70 240
-lectern_front.png 125 97 54 240
-lectern_sides.png 140 110 63 240
 light_blue_concrete.png 34 129 187 240
 light_blue_concrete_powder.png 70 170 201 240
 light_blue_glazed_terracotta.png 90 156 197 240
@@ -209,7 +204,6 @@ oak_log.png 103 80 48 240
 oak_planks.png 151 122 73 240
 oak_trapdoor.png 103 82 47 204
 observer_back.png 69 67 67 240
-observer_back_on.png 74 66 66 240
 observer_front.png 101 101 101 240
 observer_side.png 67 66 66 240
 observer_top.png 95 95 95 240
