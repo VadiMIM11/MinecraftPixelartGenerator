@@ -65,7 +65,7 @@ def fileToArray(texturesFile):
 defaultFileName = "averageColorData.txt";
 while(True):
     #
-    print("C:\\Users\\Vadim\\Pictures\\x4D-qiVvuTA.jpg");
+    #print("C:\\Users\\Vadim\\Pictures\\x4D-qiVvuTA.jpg");
     #
     print("Commands:\n<exit>\n<new> - new textures database folder");
     print("<load> - load image for a pixelart");
@@ -90,10 +90,10 @@ while(True):
         print("Type <preview> to create an image of a pixelart");
         userInput = input();
         #
-        print("C:\\Users\\Vadim\\Desktop\\Delete\\blockForPreview");
+        #print("C:\\Users\\Vadim\\Desktop\\Delete\\blockForPreview");
         #
         if userInput == "preview":
-            print("NOTE: All textures must have the same square resolution.\nEnter path to your textures folder:");
+            print("NOTE: All textures must have the same square aspect ratio.\nEnter path to your textures folder:");
             path = input();
             previewObj = PreviewClass();
             previewObj.showArt(texturesColorsArray, img, path);
