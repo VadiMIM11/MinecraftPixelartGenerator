@@ -1,7 +1,7 @@
 from PIL import Image
 import os, copy
 from preview import PreviewClass
-from MatrixCell import MatrixCell
+
 
 def avrgColorInDir(inputDir):
     files = os.listdir(inputDir);
